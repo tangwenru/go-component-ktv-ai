@@ -3,8 +3,6 @@ package component_ktv_ai_lib
 import (
 	"bytes"
 	"crypto/rand"
-	"crypto/sha1"
-	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"math"
@@ -64,12 +62,6 @@ func DataResultError(code string, message string, data interface{}) (r DataResul
 	return result
 }
 
-func EncodePassword(password string) string {
-	sha := sha1.New()
-	sha.Write([]byte("微信封号发麻的很" + password))
-	return hex.EncodeToString(sha.Sum([]byte(nil)))
-}
-
 // 截取字符串
 func Slice(word string, startPos int, endPos int) string {
 	wordRune := []rune(word)
@@ -119,19 +111,6 @@ func String2Int64(str string) int64 {
 	}
 	return id
 }
-
-// string | int64
-//func interface2Int64( str interface{}) int64 {
-//	if str == "" {
-//		return 0
-//	}
-//
-//	id, err := strconv.ParseInt( str, 10, 64)
-//	if err != nil {
-//		id = 0
-//	}
-//	return id
-//}
 
 func String2Int8(str string) int8 {
 	if str == "" {

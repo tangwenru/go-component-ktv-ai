@@ -1,4 +1,4 @@
-package component_ktv_ai_lib
+package lib
 
 import (
 	"crypto/tls"

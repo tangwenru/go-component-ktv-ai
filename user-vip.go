@@ -1,8 +1,9 @@
 package component_ktv_ai
 
 import (
-	component_ktv_ai_lib "component_ktv_ai/lib"
 	"fmt"
+	//component_ktv_ai_lib "component_ktv_ai/lib"
+	component_ktv_ai_lib "github.com/tangwenru/go-component-ktv-ai/lib"
 )
 
 type UserVip struct {

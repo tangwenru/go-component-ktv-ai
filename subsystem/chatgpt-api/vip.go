@@ -1,9 +1,9 @@
 package subsystemChatgptApi
 
 import (
-	component_ktv_ai_lib "component_ktv_ai/lib"
-	"component_ktv_ai/subsystem/chatgpt-api/type"
 	"fmt"
+	component_ktv_ai_lib "github.com/tangwenru/go-component-ktv-ai/lib"
+	"github.com/tangwenru/go-component-ktv-ai/subsystem/chatgpt-api/type"
 )
 
 type Vip struct {

@@ -5,18 +5,18 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	beego "github.com/beego/beego/v2/adapter"
 	"github.com/beego/beego/v2/client/httplib"
+	beego "github.com/beego/beego/v2/server/web"
 	"strings"
 )
 
 func MainSystem(userId int64, apiPath string, data interface{}, result interface{}) ([]byte, error) {
-	apiUrl := beego.AppConfig.String("KTVAI.APIUrl")
+	apiUrl, _ := beego.AppConfig.String("KTVAI.APIUrl")
 	return ApiGet(userId, apiUrl, apiPath, data, result)
 }
 
 func SubsystemChatgpt(userId int64, apiPath string, data interface{}, result interface{}) ([]byte, error) {
-	apiUrl := beego.AppConfig.String("Subsystem.ChatgptAPIUrl")
+	apiUrl, _ := beego.AppConfig.String("Subsystem.ChatgptAPIUrl")
 	if len(apiUrl) < 5 {
 		return nil, errors.New("请配置 app.conf 文件的 Subsystem.ChatgptAPIUrl")
 	}
@@ -24,7 +24,7 @@ func SubsystemChatgpt(userId int64, apiPath string, data interface{}, result int
 }
 
 func SubsystemChatgptApi(userId int64, apiPath string, data interface{}, result interface{}) ([]byte, error) {
-	apiUrl := beego.AppConfig.String("Subsystem.ChatgptApiAPIUrl")
+	apiUrl, _ := beego.AppConfig.String("Subsystem.ChatgptApiAPIUrl")
 	if len(apiUrl) < 5 {
 		return nil, errors.New("请配置 app.conf 文件的 Subsystem.ChatgptApiAPIUrl")
 	}

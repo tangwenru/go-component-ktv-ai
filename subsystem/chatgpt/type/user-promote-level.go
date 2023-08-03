@@ -1,4 +1,4 @@
-package config
+package typeChatgpt
 
 type UserPromoteLevelList struct {
 	Title   string `json:"title"`

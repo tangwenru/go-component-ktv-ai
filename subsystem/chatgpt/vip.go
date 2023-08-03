@@ -16,6 +16,7 @@ type VipDetail struct {
 	RatioDownPercent1 float64
 	RatioDownPercent2 float64
 	VipLevel          int64
+	VipId             int64
 	IsVip             bool
 	Expired           int64
 	Created           int64

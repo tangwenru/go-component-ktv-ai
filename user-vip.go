@@ -2,6 +2,8 @@ package component_ktv_ai
 
 import (
 	"fmt"
+	"github.com/tangwenru/go-component-ktv-ai/config"
+
 	//component_ktv_ai_lib "component_ktv_ai/lib"
 	component_ktv_ai_lib "github.com/tangwenru/go-component-ktv-ai/lib"
 )
@@ -17,6 +19,7 @@ type UserVipDetail struct {
 	RatioDownPercent2 float64
 	VipLevel          int64
 	IsVip             bool
+	VipDetail         config.VipDetail `json:"vipDetail"`
 	Expired           int64
 	Created           int64
 	Updated           int64

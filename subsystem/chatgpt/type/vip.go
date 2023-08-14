@@ -20,7 +20,7 @@ type VipDetail struct {
 	RatioDownPercent1 float64              `json:"ratioDownPercent1"`
 	RatioDownPercent2 float64              `json:"ratioDownPercent2"`
 	VipLevel          int64                `json:"vipLevel"`
-	PropertyAmount    float64              `json:"propertyAmount"`
+	PropertyAmount    string               `json:"propertyAmount"`
 	Recommend         int64                `json:"recommend"`
 	UserPromoteInfo   UserPromoteLevelList `json:"userPromoteInfo"`
 	Alt               string               `json:"alt"`

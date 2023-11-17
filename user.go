@@ -50,5 +50,5 @@ func (this *User) Detail(userId int64) (error, *UserDetail) {
 		return errors.New(userDetailResult.Message), &userDetail
 	}
 
-	return err, &userDetail
+	return err, &userDetailResult.Data
 }

@@ -42,7 +42,7 @@ func (this *User) Detail(userId int64) (error, *UserDetail) {
 
 	userDetail := UserDetail{}
 	if err != nil {
-		fmt.Println("User info:", string(bytesResult))
+		fmt.Println("user info:", string(bytesResult))
 		return err, &userDetail
 	}
 

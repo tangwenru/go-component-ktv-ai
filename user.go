@@ -1,12 +1,20 @@
 package component_ktv_ai
 
 import (
+	"errors"
 	"fmt"
 	//component_ktv_ai_lib "component_ktv_ai/lib"
 	component_ktv_ai_lib "github.com/tangwenru/go-component-ktv-ai/lib"
 )
 
 type User struct {
+}
+
+type UserDetailResult struct {
+	Success bool       `json:"success"`
+	Message string     `json:"message"`
+	Code    string     `json:"code"`
+	Data    UserDetail `json:"data"`
 }
 
 type UserDetail struct {
@@ -28,12 +36,18 @@ func init() {
 }
 
 func (this *User) Detail(userId int64) (error, *UserDetail) {
-	userDetail := UserDetail{}
+	userDetailResult := UserDetailResult{}
 	query := map[string]string{}
-	bytesResult, err := component_ktv_ai_lib.MainSystem(userId, "user/info", &query, &userDetail)
+	bytesResult, err := component_ktv_ai_lib.MainSystem(userId, "user/info", &query, &userDetailResult)
 
+	userDetail := UserDetail{}
 	if err != nil {
 		fmt.Println("User info:", string(bytesResult))
+		return err, &userDetail
+	}
+
+	if !userDetailResult.Success {
+		return errors.New(userDetailResult.Message), &userDetail
 	}
 
 	return err, &userDetail

@@ -38,11 +38,11 @@ func init() {
 func (this *User) Detail(userId int64) (error, *UserDetail) {
 	userDetailResult := UserDetailResult{}
 	query := map[string]string{}
-	bytesResult, err := component_ktv_ai_lib.MainSystem(userId, "user/info", &query, &userDetailResult)
+	_, err := component_ktv_ai_lib.MainSystem(userId, "user/info", &query, &userDetailResult)
 
 	userDetail := UserDetail{}
 	if err != nil {
-		fmt.Println("user info:", string(bytesResult))
+		fmt.Println("user info err:", err)
 		return err, &userDetail
 	}
 
